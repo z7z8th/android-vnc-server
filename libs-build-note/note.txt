@@ -1,0 +1,12 @@
+copy related Android.mk to each lib dir
+
+LibVNCServer-0.9.10
+libjpeg-turbo-1.3.1.tar.gz
+
+cd libvncserver
+./autogen.sh
+./configure --without-crypto
+
+
+cd libjpeg-turbo
+./configure

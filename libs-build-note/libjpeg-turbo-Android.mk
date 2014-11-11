@@ -1,0 +1,92 @@
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH) \
+
+LOCAL_SRC_FILES := \
+	bmp.c \
+	cdjpeg.c \
+	cjpeg.c \
+	djpeg.c \
+	example.c \
+	jaricom.c \
+	jcapimin.c \
+	jcapistd.c \
+	jcarith.c \
+	jccoefct.c \
+	jccolor.c \
+	jcdctmgr.c \
+	jchuff.c \
+	jcinit.c \
+	jcmainct.c \
+	jcmarker.c \
+	jcmaster.c \
+	jcomapi.c \
+	jcparam.c \
+	jcphuff.c \
+	jcprepct.c \
+	jcsample.c \
+	jcstest.c \
+	jctrans.c \
+	jdapimin.c \
+	jdapistd.c \
+	jdarith.c \
+	jdatadst.c \
+	jdatadst-tj.c \
+	jdatasrc.c \
+	jdatasrc-tj.c \
+	jdcoefct.c \
+	jdcolor.c \
+	jddctmgr.c \
+	jdhuff.c \
+	jdinput.c \
+	jdmainct.c \
+	jdmarker.c \
+	jdmaster.c \
+	jdmerge.c \
+	jdphuff.c \
+	jdpostct.c \
+	jdsample.c \
+	jdtrans.c \
+	jerror.c \
+	jfdctflt.c \
+	jfdctfst.c \
+	jfdctint.c \
+	jidctflt.c \
+	jidctfst.c \
+	jidctint.c \
+	jidctred.c \
+	jmemmgr.c \
+	jmemnobs.c \
+	jpegtran.c \
+	jquant1.c \
+	jquant2.c \
+	jsimd_none.c \
+	jutils.c \
+	rdbmp.c \
+	rdcolmap.c \
+	rdgif.c \
+	rdjpgcom.c \
+	rdppm.c \
+	rdrle.c \
+	rdswitch.c \
+	rdtarga.c \
+	simd/jsimd_arm.c \
+	tjbench.c \
+	tjunittest.c \
+	tjutil.c \
+	transupp.c \
+	turbojpeg.c \
+	turbojpeg-jni.c \
+	wrbmp.c \
+	wrgif.c \
+	wrjpgcom.c \
+	wrppm.c \
+	wrrle.c \
+	wrtarga.c \
+
+LOCAL_CFLAGS := 
+LOCAL_MODULE := libjpeg_turbo_static
+
+include $(BUILD_STATIC_LIBRARY)
