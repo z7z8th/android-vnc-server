@@ -231,7 +231,7 @@ static void init_fb_server(int argc, char **argv)
 	vncscr->desktopName = VNC_DESKTOP_NAME;
 	vncscr->frameBuffer = (char *)vncbuf;
 	vncscr->alwaysShared = TRUE;
-	vncscr->httpDir = "/storage/sdcard1/noVNC";
+	vncscr->httpDir = NULL;
 	vncscr->port = VNC_PORT;
 
 	vncscr->kbdAddEvent = keyevent;
@@ -451,16 +451,16 @@ static int get_framebuffer_yoffset()
 }
 
 #define PIXEL_FB_TO_RFB(p,r,g,b) \
-	((p >> r) & 0x1f001f) | \
+	((p >> b) & 0x1f001f) | \
 	(((p >> g) & 0x1f001f) << 5) | \
-	(((p >> b) & 0x1f001f) << 10)
+	(((p >> r) & 0x1f001f) << 10)
 
 
 static void update_screen(void)
 {
 	unsigned int *f, *c, *r;
 	int x, y, y_virtual;
-	struct timeval now;
+	static struct timeval now;
 	suseconds_t offset_us;
 
 	gettimeofday(&now, 0);
@@ -495,7 +495,7 @@ static void update_screen(void)
 
 				/* XXX: Undo the checkered pattern to test the
 				 * efficiency gain using hextile encoding. */
-				#if 1
+				#if 0
 				if (pixel == 0x18e320e4 || pixel == 0x20e418e3)
 					pixel = 0x18e318e3; /* still needed? */
 				#endif
